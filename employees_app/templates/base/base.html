@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {# WRONG #}
+    {# <link rel="stylesheet" href="/static/main.css"> #}
+    {# <link rel="stylesheet" href="{% static 'main.css'%}"> #}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<h1>Django 101</h1>
+<button type="button" class="btn btn-success">Success</button>
+<ul>
+    <li>
+        <a href="{% url 'go to home' %}">Home</a>
+    </li>
+    <li>
+        <a href="{% url 'templates index' %}">Templates</a>
+    </li>
+    <li>
+        <a href="{% url 'templates index' %}">Templates 2</a>
+    </li>
+</ul>
+
+{# abstract method 'content' #}
+{% block content %}
+{% endblock %}
+</body>
+</html>

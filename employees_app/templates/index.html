@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}
+
+{# implementing the abstract method 'content' #}
+{% block content %}
+
+<h1>It works!</h1>
+<h2>The number is {{ number }}</h2>
+<a href="{% url 'go to home' %}">Go to HOME</a>
+<ul>
+    {% for number in numbers %}
+        <li>Number {{ number }}</li>
+    {% endfor %}
+</ul>
+<script>
+    window.number = "{{ number }}";
+    {# window.number = "123" #}
+</script>
+{% endblock %}
