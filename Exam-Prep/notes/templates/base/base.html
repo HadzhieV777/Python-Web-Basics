@@ -1,0 +1,48 @@
+{% load profiles %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
+    <title>Notes</title>
+</head>
+{% has_profile as hp %}
+
+<body>
+<!--navigation bar-->
+<header>
+    <nav>
+        {% if hp %}
+            <ul>
+                <li class="img"><img src="/static/images/note.png"/></li>
+                <li><a href="/">Notes</a></li>
+                <li class="right">
+                    <a href="{% url 'add note' %}">Add Note</a>
+                    <a href="{% url 'show profile' %}">Profile</a>
+                </li>
+            </ul>
+        {% else %}
+            <ul>
+                <li class="img"><img src="/static/images/note.png" width="32" height="32"/></li>
+
+                <li><a href="/">Notes</a></li>
+            </ul>
+
+        {% endif %}
+    </nav>
+</header>
+<!--end navigation bar-->
+
+<div class="body">
+
+    {% block page_content %}
+    {% endblock %}
+
+</div>
+
+<footer>
+    <div>Python Web Basics Exam @SoftUni</div>
+</footer>
+</body>
+</html>
