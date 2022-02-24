@@ -1,0 +1,44 @@
+{% load profiles %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/static/images/library.jpg" type="image/x-icon"/>
+    <link rel="stylesheet" href="{% static '/css/styles.css' %}">
+    <title>Online Books Library</title>
+</head>
+
+<body>
+<div id="container">
+    <header id="site-header">
+
+        <!-- Navigation -->
+        {% has_profile as hp %}
+        <nav class="navbar">
+            <section class="navbar-dashboard">
+                <a href="{% url 'index' %}">Dashboard</a>
+                {% if hp %}
+                    <div id="user">
+                        <span>Welcome, {{ profile.first_name }}</span>
+                        <a class="button" href="{% url 'add book' %}">Add Book</a>
+                        <a class="button" href="{% url 'show profile' %}">Profile</a>
+                    </div>
+                {% endif %}
+            </section>
+        </nav>
+    </header>
+
+    <!-- Dashboard Page-->
+    <div class="container">
+        {% block page_content %}
+        {% endblock %}
+    </div>
+
+
+    <footer id="site-footer">
+        <p>Python Web Basics Retake Exam @SoftUni</p>
+    </footer>
+</div>
+</body>
