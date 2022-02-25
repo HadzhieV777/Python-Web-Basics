@@ -1,0 +1,28 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+
+    <div class="body">
+        <h1>Create Expense</h1>
+        <!-- Create Expense Form -->
+        <div class="form">
+            <form method="post" action="{% url 'create expense' %}">
+                {% csrf_token %}
+                {{ form }}
+                {#                <label for="title">Title:</label>#}
+                {#                <input type="text" name="title" maxlength="30" id="title" required>#}
+                {##}
+                {#                <label for="description">Description:</label>#}
+                {#                <textarea name="description" cols="40" rows="10" id="description"></textarea>#}
+                {##}
+                {#                <label for="imageUrl">Link to Image:</label>#}
+                {#                <input type="url" name="image_url" required id="imageUrl">#}
+                {##}
+                {#                <label for="price">Price:</label>#}
+                {#                <input type="number" name="price" step="any" required id="price">#}
+                <!-- Create Button -->
+                <input type="submit" value="Create">
+            </form>
+        </div>
+        <!-- End Create Expense Form -->
+    </div>
+{% endblock %}
